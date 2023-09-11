@@ -2,6 +2,18 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+function formatDateWithoutMilliseconds(date) {
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+}
+
+
 app.get('/api', (req, res) => {
 //    Get Query Parameters
 const slackName = req.query.slack_name;
@@ -14,7 +26,7 @@ const currentDay = daysOfWeek[new Date().getDay()];
 // Get currentUTC time
 const now = new Date();
 const offset = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
-const utcTime = new Date(now.getTime() + offset).toISOString().replace(/\.\d{3}Z$/, 'Z');
+const utcTime = formatDateWithoutMilliseconds(new Date(now.getTime() - offset));
 
 
 // GITHUB URLs
