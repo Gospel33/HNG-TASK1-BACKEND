@@ -13,7 +13,7 @@ const currentDay = daysOfWeek[new Date().getDay()];
 
 // Get currentUTC time
 const now = new Date();
-const offset = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+const offset = 0 * 60 * 60 * 1000; // 2 hours in milliseconds
 const utcTime = new Date(now.getTime() + offset).toISOString();
 
 // GITHUB URLs
