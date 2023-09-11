@@ -13,7 +13,8 @@ const currentDay = daysOfWeek[new Date().getDay()];
 
 // Get currentUTC time
 const now = new Date();
-const utcTime = now.toISOString();
+const offset = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+const utcTime = new Date(now.getTime() + offset).toISOString();
 
 // GITHUB URLs
 const githubFileUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND/blob/main/app.js';
