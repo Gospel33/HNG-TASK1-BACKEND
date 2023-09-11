@@ -16,6 +16,10 @@ const now = new Date();
 const offset = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
 const utcTime = new Date(now.getTime() - offset).toISOString();
 
+// Format UTC time with two decimal places for milliseconds
+const milliseconds = now.getUTCMilliseconds().toFixed(2);
+const formattedUtcTime = `${utcTime.slice(0, -1)}${milliseconds}Z`;
+
 // GITHUB URLs
 const githubFileUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND/blob/main/app.js';
 const githubRepoUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND';
@@ -24,7 +28,7 @@ const githubRepoUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND';
 const jsonResponse = {
     slack_name: slackName,
     current_day: currentDay,
-    utc_time: utcTime,
+    utc_time: formattedUtcTime,
     track: track,
     github_file_url: githubFileUrl,
     github_repo_url: githubRepoUrl,
