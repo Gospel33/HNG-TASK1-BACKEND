@@ -16,8 +16,8 @@ const now = new Date();
 const utcTime = now.toISOString();
 
 // GITHUB URLs
-const githubFileUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND/blob/main/';
-const githubRepoUrl = 'https://github.com/Gospel33';
+const githubFileUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND/blob/main/app.js';
+const githubRepoUrl = 'https://github.com/Gospel33/HNG-TASK1-BACKEND';
 
 // Response JSON
 const jsonResponse = {
